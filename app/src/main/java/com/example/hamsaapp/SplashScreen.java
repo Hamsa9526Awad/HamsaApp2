@@ -14,11 +14,9 @@ public class SplashScreen extends AppCompatActivity {
     private TextView txtwelcome;
 
 
-
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
         txtwelcome= findViewById(R.id.txtwelcome);
@@ -40,7 +38,7 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
 
             }
-        }
+        };
         h.postDelayed(r,3000);
 
     }
