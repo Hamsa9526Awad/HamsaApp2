@@ -3,6 +3,7 @@ package com.example.hamsaapp;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private SeekBar skbrlimportance;
     private TextInputEditText etshorttitle;
     private TextInputEditText ettext;
+    private TextView txtimportance;
 
 
 
@@ -28,6 +30,8 @@ public class AddTaskActivity extends AppCompatActivity {
         skbrlimportance= findViewById(R.id.skbrlimportance);
         etshorttitle= findViewById(R.id.etshorttitle);
         ettext= findViewById(R.id.ettext);
+        txtimportance=findViewById(R.id.txtimportance);
+
 
 
 

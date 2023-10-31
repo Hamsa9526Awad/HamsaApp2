@@ -3,6 +3,7 @@ package com.example.hamsaapp;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,22 +12,24 @@ import com.google.android.material.textfield.TextInputEditText;
 public class EditTaskActivity extends AppCompatActivity {
 
 
-    private Button btnupdatetask;
-    private Button btncanceltask;
-    private SeekBar skbrlimportance;
-    private TextInputEditText etshorttitle;
-    private TextInputEditText ettext;
+    private Button btnupdateedittask;
+    private Button btncanceledittask;
+    private SeekBar skbrlimportanceEdit;
+    private TextInputEditText etshorttitleEdit;
+    private TextInputEditText etEdittext;
+    private TextView txtimportance1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_task);
 
-        btnupdatetask= findViewById(R.id.btnupdatetask);
-        btncanceltask= findViewById(R.id.btncanceltask);
-        skbrlimportance= findViewById(R.id.skbrlimportance);
-        etshorttitle= findViewById(R.id.etshorttitle);
-        ettext= findViewById(R.id.ettext);
+        btnupdateedittask= findViewById(R.id.btnupdateedittask);
+        btncanceledittask= findViewById(R.id.btncanceledittask);
+        skbrlimportanceEdit= findViewById(R.id.skbrlimportanceEdit);
+        etshorttitleEdit= findViewById(R.id.etshorttitleEdit);
+        etEdittext= findViewById(R.id.etEdittext);
+        txtimportance1=findViewById(R.id.txtimportance1);
 
 
 

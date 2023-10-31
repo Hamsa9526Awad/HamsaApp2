@@ -5,18 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.hamsaapp.Data.AppDataBase;
 import com.example.hamsaapp.Data.mySubjectsTable.Mysubject;
 import com.example.hamsaapp.Data.mySubjectsTable.MysubjectQuery;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     //spnr1 تعريف صفة للكائن المرئي
     private Spinner spnrsubject;
+    private FloatingActionButton fabadd;
+    private SearchView srchv;
+    private ListView lstvtasks;
 
 
 
@@ -65,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, s.title, Toast.LENGTH_SHORT).show();
 
         }
+
+        fabadd=findViewById(R.id.fabadd);
+        srchv=findViewById(R.id.srchv);
+        lstvtasks=findViewById(R.id.lstvtasks);
 
 
     }
