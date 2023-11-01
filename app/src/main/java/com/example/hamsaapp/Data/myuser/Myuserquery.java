@@ -12,10 +12,10 @@ import java.util.List;
 /*
  لتحديد أن الواجهة تحوي عمليات/دوال/استعلامات على قاعدة البيانات *
  */
+@Dao
 public interface Myuserquery
 {
-    @Dao
-    public interface MyUserQuery {
+
         @Query("SELECT * FROM MyUser")
         List<MyUser> getAll();
 
@@ -39,6 +39,6 @@ public interface Myuserquery
         void insert(MyUser myUser);
         @Update
         void update(MyUser...values);
-    }
+
 
 }
