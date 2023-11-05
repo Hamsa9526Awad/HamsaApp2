@@ -3,6 +3,7 @@ package com.example.hamsaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,6 +26,19 @@ public class SignIn extends AppCompatActivity {
         etPassword= findViewById(R.id.etPassword);
         btnsignin= findViewById(R.id.btnsignin);
         btnsignup= findViewById(R.id.btnsignup);
+
+
+    }
+
+
+    /**
+     * دالة معالجة حدث الضغط على كائن بواجهة المستعمل.
+     */
+
+    public void onClicksignup (View v)
+    {
+        // استخراج نص من حقل
+        String st= et_Input.getText().toString();
 
 
     }

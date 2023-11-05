@@ -31,11 +31,10 @@ public class AddTaskActivity extends AppCompatActivity {
         etshorttitle= findViewById(R.id.etshorttitle);
         ettext= findViewById(R.id.ettext);
         txtimportance=findViewById(R.id.txtimportance);
-
-
-
-
     }
+
+
+
 
 
 
