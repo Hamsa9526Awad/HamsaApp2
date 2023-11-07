@@ -2,6 +2,7 @@ package com.example.hamsaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,8 +38,10 @@ public class SignIn extends AppCompatActivity {
 
     public void onClicksignup (View v)
     {
-        // استخراج نص من حقل
-        String st= et_Input.getText().toString();
+        //to open new activity from current to next activity
+        Intent i= new Intent(SignIn.this,   Signupactivity.class);
+        startActivity(i);
+
 
 
     }
