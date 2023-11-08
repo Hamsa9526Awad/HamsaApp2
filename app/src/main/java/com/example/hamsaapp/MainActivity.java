@@ -2,8 +2,10 @@ package com.example.hamsaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -123,4 +125,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public void onClickadd (View v)
+    {
+        //to open new activity from current to next activity
+        Intent i= new Intent(MainActivity.this,   AddTaskActivity.class);
+        startActivity(i);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

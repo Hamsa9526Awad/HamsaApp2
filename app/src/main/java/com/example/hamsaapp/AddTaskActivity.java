@@ -1,6 +1,8 @@
 package com.example.hamsaapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -31,6 +33,21 @@ public class AddTaskActivity extends AppCompatActivity {
         etshorttitle= findViewById(R.id.etshorttitle);
         ettext= findViewById(R.id.ettext);
         txtimportance=findViewById(R.id.txtimportance);
+    }
+
+
+    public void onClicksaveTask (View v){
+
+        //to open new activity from current to next activity
+        Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
+        startActivity(i);
+    }
+
+    public void onClickcanceladdtask (View v)
+    {
+        //to open new activity from current to next activity
+        Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
+        startActivity(i);
     }
 
 

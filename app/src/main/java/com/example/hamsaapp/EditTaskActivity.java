@@ -1,6 +1,8 @@
 package com.example.hamsaapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -31,10 +33,20 @@ public class EditTaskActivity extends AppCompatActivity {
         etEdittext= findViewById(R.id.etEdittext);
         txtimportance1=findViewById(R.id.txtimportance1);
 
+    }
 
+    public void onClickupdateTask (View v)
+    {
+        //to open new activity from current to next activity
+        Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
+        startActivity(i);
+    }
 
-
-
+    public void onClickCancelUpdateTask (View v)
+    {
+        //to open new activity from current to next activity
+        Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
+        startActivity(i);
     }
 
 }
