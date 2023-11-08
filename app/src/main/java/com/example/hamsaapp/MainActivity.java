@@ -126,12 +126,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickadd (View v)
-    {
-        //to open new activity from current to next activity
-        Intent i= new Intent(MainActivity.this,   AddTaskActivity.class);
-        startActivity(i);
-    }
+
 
 }
 
