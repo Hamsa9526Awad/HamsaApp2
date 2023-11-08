@@ -40,6 +40,8 @@ public class EditTaskActivity extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
         startActivity(i);
+
+
     }
 
     public void onClickCancelUpdateTask (View v)
@@ -47,6 +49,9 @@ public class EditTaskActivity extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
         startActivity(i);
+        //to close current activity
+        finish();
+
     }
 
 }

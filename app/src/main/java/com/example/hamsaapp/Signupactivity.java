@@ -45,6 +45,8 @@ public class Signupactivity extends AppCompatActivity {
 
 
 
+
+
     }
 
 
@@ -53,6 +55,9 @@ public class Signupactivity extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(Signupactivity.this,   SignIn.class);
         startActivity(i);
+        //to close current activity
+        finish();
+
 
     }
 }

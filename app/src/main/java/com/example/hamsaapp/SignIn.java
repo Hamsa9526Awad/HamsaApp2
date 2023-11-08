@@ -44,6 +44,8 @@ public class SignIn extends AppCompatActivity {
 
 
 
+
+
     }
 
     public void onClicksignin (View v)
@@ -51,6 +53,8 @@ public class SignIn extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(SignIn.this,   MainActivity.class);
         startActivity(i);
+
+
     }
 
 

@@ -41,6 +41,8 @@ public class AddTaskActivity extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
         startActivity(i);
+
+
     }
 
     public void onClickcanceladdtask (View v)
@@ -48,6 +50,9 @@ public class AddTaskActivity extends AppCompatActivity {
         //to open new activity from current to next activity
         Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
         startActivity(i);
+        //to close current activity
+        finish();
+
     }
 
 
