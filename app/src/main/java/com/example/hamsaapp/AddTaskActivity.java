@@ -47,11 +47,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
     public void onClickcanceladdtask (View v)
     {
-        //to open new activity from current to next activity
-        Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
-        startActivity(i);
-        //to close current activity
-        finish();
+
 
     }
 

@@ -52,11 +52,7 @@ public class Signupactivity extends AppCompatActivity {
 
     public void onClickcancelsignup(View v)
     {
-        //to open new activity from current to next activity
-        Intent i= new Intent(Signupactivity.this,   SignIn.class);
-        startActivity(i);
-        //to close current activity
-        finish();
+
 
 
     }

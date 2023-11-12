@@ -43,19 +43,19 @@ public class SignIn extends AppCompatActivity {
         startActivity(i);
 
 
-
-
-
     }
 
     public void onClicksignin (View v)
     {
-        //to open new activity from current to next activity
-        Intent i= new Intent(SignIn.this,   MainActivity.class);
-        startActivity(i);
+
 
 
     }
 
+    private void checkEmailPass()
+    {
 
+
+
+}
 }

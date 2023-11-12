@@ -46,11 +46,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
     public void onClickCancelUpdateTask (View v)
     {
-        //to open new activity from current to next activity
-        Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
-        startActivity(i);
-        //to close current activity
-        finish();
+
 
     }
 
