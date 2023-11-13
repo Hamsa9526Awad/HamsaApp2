@@ -38,6 +38,9 @@ public class Signupactivity extends AppCompatActivity {
 
 
 
+
+
+
     public void onClicksavesignup(View v) //نقل إلى شاشة أخرى
     {
         checkData();
@@ -55,7 +58,7 @@ public class Signupactivity extends AppCompatActivity {
 
     public void onClickcancelsignup(View v)
     {
-        checkData();
+
 
 
 
