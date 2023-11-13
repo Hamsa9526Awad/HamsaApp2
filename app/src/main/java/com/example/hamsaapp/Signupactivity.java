@@ -40,9 +40,11 @@ public class Signupactivity extends AppCompatActivity {
 
     public void onClicksavesignup(View v) //نقل إلى شاشة أخرى
     {
+        checkData();
         //to open new activity from current to next activity
         Intent i= new Intent(Signupactivity.this,   SignIn.class);
         startActivity(i);
+
 
 
 
@@ -53,6 +55,7 @@ public class Signupactivity extends AppCompatActivity {
 
     public void onClickcancelsignup(View v)
     {
+        checkData();
 
 
 
@@ -82,6 +85,7 @@ public class Signupactivity extends AppCompatActivity {
 
 
 
+
         // فحص الايميل ان كان طوله أقل من 6 أو لا يحتوي على @ فهو خاطئ
         if (email.length()<6 || email.contains("@")== false)
         {
@@ -91,13 +95,32 @@ public class Signupactivity extends AppCompatActivity {
             ETemail.setError("wrong email");
         }
 
-        if (pass.length()<8 || pass.contains("")== true)
+        // يجب أن تكون كلمة المرر من ثمانية ولا تحوي فراغ اذا كان بها هذه الأشياء فانه يرجع نص بأن كلمة المرور خاطئة
+        if (pass.length()<8 || pass.contains(" ")== true)
         {
             isAllOk=false;
             ETpass.setError("Wrong password");
         }
 
+        //يجب أن يكون تكرار كلمة المرور نفس كلمة المرور
+        if (repass.equals(pass)==false)
+        {
+            isAllOk=false;
+            ETrepass.setError("not the same");
+        }
 
+        //يجب أن يكون الاسم اجباري ولو حر واحد لو ترك الاسم بدون أن يكتبه فانه يرجع نص بانه فارغ
+        if (name.length()<1)
+        {
+            isAllOk=false;
+            ETname.setError("name is empty");
+        }
+
+        //يفحص اذا الرقم مكون من 10 أرقام واذا لم يكن من 10 أرقام فانه يرجع نص بانه خطأ
+        if (number.length()!=10)
+        {
+            ETphone.setError("Wrong number");
+        }
 
         if (isAllOk)
         {

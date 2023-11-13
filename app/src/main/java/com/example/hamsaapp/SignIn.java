@@ -72,11 +72,13 @@ public class SignIn extends AppCompatActivity {
             // عرض ملاحظة خطأ على الشاشة داخل حقل البريد
             etEmail.setError("wrong email");
         }
-        if (pass.length()<8 || pass.contains("")== true)
+        if (pass.length()<8 || pass.contains(" ")== true)
         {
             isAllOk=false;
             etPassword.setError("Wrong password");
         }
+
+
         if (isAllOk)
         {
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
