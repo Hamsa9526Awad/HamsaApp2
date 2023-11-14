@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,26 +37,50 @@ public class AddTaskActivity extends AppCompatActivity {
     }
 
 
-    public void onClicksaveTask (View v){
-
+    public void onClicksaveTask (View v)
+    {
+        checkShortTitleAndText();
         //to open new activity from current to next activity
         Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
         startActivity(i);
-
-
     }
+
+
 
     public void onClickcanceladdtask (View v)
     {
+        checkShortTitleAndText();
 
 
     }
 
 
 
+    private void checkShortTitleAndText()
+    {
+
+        boolean isAllOk=true; // يحوي نتيجة فحص الحقول ان كانت سليمة
+
+        String shortTitle=etshorttitle.getText().toString();
+        String text=ettext.getText().toString();
+
+        if (shortTitle.length()<1)
+        {
+            isAllOk=false;
+            etshorttitle.setError("short title is empty");
+        }
+
+        if (text.length()<1)
+        {
+            isAllOk=false;
+            ettext.setError("text is empty");
+        }
+
+        if (isAllOk)
+        {
+            Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+        }
 
 
-
-
-
+    }
 }
