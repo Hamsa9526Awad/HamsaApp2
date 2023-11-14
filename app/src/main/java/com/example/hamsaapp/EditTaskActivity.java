@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
     public void onClickupdateTask (View v)
     {
+        checkShortTitleAndTextinEdit();
         //to open new activity from current to next activity
         Intent i= new Intent(EditTaskActivity.this,   MainActivity.class);
         startActivity(i);
@@ -46,6 +48,36 @@ public class EditTaskActivity extends AppCompatActivity {
 
     public void onClickCancelUpdateTask (View v)
     {
+
+
+    }
+
+
+
+    private void checkShortTitleAndTextinEdit()
+    {
+
+        boolean isAllOk=true; // يحوي نتيجة فحص الحقول ان كانت سليمة
+
+        String shortTitleEdit=etshorttitleEdit.getText().toString();
+        String textEdit=etEdittext.getText().toString();
+
+        if (shortTitleEdit.length()<1)
+        {
+            isAllOk=false;
+            etshorttitleEdit.setError("short title is empty");
+        }
+
+        if (textEdit.length()<1)
+        {
+            isAllOk=false;
+            etEdittext.setError("text is empty");
+        }
+
+        if (isAllOk)
+        {
+            Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+        }
 
 
     }
