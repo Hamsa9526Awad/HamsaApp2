@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.hamsaapp.Data.AppDataBase;
+import com.example.hamsaapp.Data.myuser.MyUser;
+import com.example.hamsaapp.Data.myuser.Myuserquery;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Signupactivity extends AppCompatActivity {
@@ -128,6 +131,25 @@ public class Signupactivity extends AppCompatActivity {
         if (isAllOk)
         {
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+            AppDataBase db=AppDataBase.getDB(getApplicationContext());
+            Myuserquery userquery=db.getMyUserQuery();
+            //فحص هل البريد الالكتروني موجود من قبل أي تم التسجيل من قبل
+            if (userquery.checkEmailw(email)!=null)
+            {
+                ETemail.setError("found email");
+            }
+            else
+            {
+                MyUser myUser=new MyUser();
+                myUser.email=email;
+                myUser.fullName=name;
+                myUser.phone=number;
+                myUser.passw=pass;
+                userquery.insert(myUser);
+
+                //اغلاق الشاشة الحالية
+                finish();
+            }
         }
     }
 }
