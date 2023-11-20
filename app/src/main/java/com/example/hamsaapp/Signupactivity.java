@@ -47,9 +47,7 @@ public class Signupactivity extends AppCompatActivity {
     public void onClicksavesignup(View v) //نقل إلى شاشة أخرى
     {
         checkData();
-        //to open new activity from current to next activity
-        Intent i= new Intent(Signupactivity.this,   SignIn.class);
-        startActivity(i);
+
 
 
 
@@ -125,6 +123,7 @@ public class Signupactivity extends AppCompatActivity {
         //يفحص اذا الرقم مكون من 10 أرقام واذا لم يكن من 10 أرقام فانه يرجع نص بانه خطأ
         if (number.length()!=10)
         {
+            isAllOk=false;
             ETphone.setError("Wrong number");
         }
 
