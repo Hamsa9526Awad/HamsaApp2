@@ -75,6 +75,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         fabadd=findViewById(R.id.fabadd);
+        fabadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //to open new activity from current to next activity
+                Intent i= new Intent(MainActivity.this,   AddTaskActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
         srchv=findViewById(R.id.srchv);
         lstvtasks=findViewById(R.id.lstvtasks);
 
