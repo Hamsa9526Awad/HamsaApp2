@@ -8,7 +8,7 @@ public class Mysubject {
 
     @PrimaryKey(autoGenerate = true)// تجديد الصفة كمفتاح رئيسي والذي ينتج بشكل تلقائي
     /*** رقم المهمة*/
-    public long key_id;//رقم المهمة
+    public long key_id;//رقم الموضوع
 
     public String title;
 
@@ -19,6 +19,8 @@ public class Mysubject {
                 ", title='" + title + '\'' +
                 '}';
     }
+
+
 
     public long getKeyid() {
         return key_id;

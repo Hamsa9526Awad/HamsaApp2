@@ -40,7 +40,7 @@ public interface MysubjectQuery {
     void deletesubject(long id);
 
     @Query("SELECT * FROM Mysubject WHERE title = :whsubject")
-    MyUser checkSubject(String whsubject);
+    Mysubject checkSubject(String whsubject);
 
 
 }

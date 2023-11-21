@@ -19,7 +19,7 @@ public class Mytask
     /*** نص المهمة*/
     public String text;
 
-    /*** نص قصير المهمة*/
+    /*** عنوان المهمة*/
     public String shortTitle;
 
     /*** رقم موضوع المهمة*/

@@ -106,8 +106,8 @@ public class AddTaskActivity extends AppCompatActivity {
         String text=ettext.getText().toString();
         String whichsubj=autoETsubj.getText().toString();
 
-        //اسال الأستاذ على العملية اذا صح getAutofillType();
-        int importancee=txtimportance.getAutofillType();
+
+        int importancee=skbrlimportance.getProgress();
 
 
         if (shortTitle.length()<1)
@@ -143,9 +143,9 @@ public class AddTaskActivity extends AppCompatActivity {
                 subjectQuery.insertsubject(subject);
             }
             //استخراج id الموضوع لأننا بحاجة لرقمه التسلسلي
-            //Mysubject subject= subjectQuery.checkSubject(whichsubj);
-            //اسال الأستاذ عليها
-            Mysubject subject=new Mysubject();
+
+            Mysubject subject= subjectQuery.checkSubject(whichsubj);
+
 
             Mytask task=new Mytask();
             task.importance=importancee;
