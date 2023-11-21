@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        srchv=findViewById(R.id.srchv);
+
         lstvtasks=findViewById(R.id.lstvtasks);
 
 
