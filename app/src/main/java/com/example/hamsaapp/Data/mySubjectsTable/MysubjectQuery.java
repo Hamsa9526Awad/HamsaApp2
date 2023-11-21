@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.hamsaapp.Data.myuser.MyUser;
+
 import java.util.List;
 
 @Dao//واجهة استعلامات على قاعدة بيانات
@@ -36,6 +38,9 @@ public interface MysubjectQuery {
     void deletesubject(Mysubject...subject);
     @Query("DELETE FROM Mytask WHERE keyid=:id")
     void deletesubject(long id);
+
+    @Query("SELECT * FROM Mysubject WHERE title = :whsubject")
+    MyUser checkSubject(String whsubject);
 
 
 }

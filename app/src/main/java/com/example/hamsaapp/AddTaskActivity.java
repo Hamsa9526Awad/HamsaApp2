@@ -16,6 +16,7 @@ import com.example.hamsaapp.Data.AppDataBase;
 import com.example.hamsaapp.Data.mySubjectsTable.Mysubject;
 import com.example.hamsaapp.Data.mySubjectsTable.MysubjectQuery;
 import com.example.hamsaapp.Data.mySubjectsTable.MysubjectQuery_Impl;
+import com.example.hamsaapp.Data.mytasktable.Mytask;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -72,12 +73,7 @@ public class AddTaskActivity extends AppCompatActivity {
     }
 
 
-    public void checkAndSaveTask (View v)
-    {
-        boolean isAllOk=true; // يحوي نتيجة فحص الحقول ان كانت سليمة
 
-
-    }
 
 
 
@@ -108,6 +104,11 @@ public class AddTaskActivity extends AppCompatActivity {
 
         String shortTitle=etshorttitle.getText().toString();
         String text=ettext.getText().toString();
+        String whichsubj=autoETsubj.getText().toString();
+
+        //اسال الأستاذ على العملية اذا صح getAutofillType();
+        int importancee=txtimportance.getAutofillType();
+
 
         if (shortTitle.length()<1)
         {
@@ -120,10 +121,43 @@ public class AddTaskActivity extends AppCompatActivity {
             isAllOk=false;
             ettext.setError("text is empty");
         }
+        if (whichsubj.length()<1)
+        {
+            isAllOk=false;
+            autoETsubj.setError("you didn't chose the subject");
+
+        }
 
         if (isAllOk)
         {
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+            AppDataBase db=AppDataBase.getDB(getApplicationContext());
+            MysubjectQuery subjectQuery=db.getMySubjectQuery();
+
+
+            if (subjectQuery.checkSubject(whichsubj)==null) // فحص هل الموضوع من قبل بالجدول
+            {
+                //بناء موضوع جديد واضافته
+                Mysubject subject=new Mysubject();
+                subject.title=whichsubj;
+                subjectQuery.insertsubject(subject);
+            }
+            //استخراج id الموضوع لأننا بحاجة لرقمه التسلسلي
+            //Mysubject subject= subjectQuery.checkSubject(whichsubj);
+            //اسال الأستاذ عليها
+            Mysubject subject=new Mysubject();
+
+            Mytask task=new Mytask();
+            task.importance=importancee;
+            task.text=text;
+            task.shortTitle=shortTitle;
+            task.subid=subject.getKeyid();//تحديد رقم الموضوع للمهة
+            db.getMyTaskQuery().insertTask(task);//اضافة المهمة للجدول
+            finish();
+
+
+
+
         }
 
 

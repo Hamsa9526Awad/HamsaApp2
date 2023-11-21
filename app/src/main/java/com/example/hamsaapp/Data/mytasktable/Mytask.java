@@ -19,6 +19,9 @@ public class Mytask
     /*** نص المهمة*/
     public String text;
 
+    /*** نص قصير المهمة*/
+    public String shortTitle;
+
     /*** رقم موضوع المهمة*/
     public long subid;
 
@@ -56,6 +59,10 @@ public class Mytask
         return text;
     }
 
+    public String getShortTitle() {
+        return shortTitle;
+    }
+
     public long getSubid() {
         return subid;
     }
@@ -80,6 +87,9 @@ public class Mytask
         this.text = text;
     }
 
+    public void setShortTitle(String shortTitle) {this.shortTitle = shortTitle;}
+
+
     public void setSubid(long subid) {
         this.subid = subid;
     }
@@ -95,4 +105,8 @@ public class Mytask
     public void setCompleted(boolean completed) {
         isCompleted = completed;
     }
+
+
+
+
 }
