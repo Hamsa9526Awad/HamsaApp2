@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.hamsaapp.Data.AppDataBase;
 import com.example.hamsaapp.Data.mySubjectsTable.Mysubject;
 import com.example.hamsaapp.Data.mySubjectsTable.MysubjectQuery;
+import com.example.hamsaapp.Data.mytasktable.Mytask;
+import com.example.hamsaapp.Data.mytasktable.MytaskQuery;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -104,13 +106,33 @@ public class MainActivity extends AppCompatActivity {
         List<Mysubject> allsubjects=subjectquery.getAllsubjects();
         //تجهيز وسيط
         ArrayAdapter<Mysubject> subjectadapter=new ArrayAdapter<Mysubject>(this, android.R.layout.simple_dropdown_item_1line);
-        subjectadapter.add("All");
+        Mysubject s=new Mysubject();
+        s.title="All";
+        subjectadapter.add(s);//ستظهر أولا بالسبنر تعني عرض
+        for (Mysubject subject:allsubjects)//اضافة المواضيع للوسيط
+        {
+            subjectadapter.add(subject);
+        }
+        spnrsubject.setAdapter(subjectadapter);//ربط السبنر بالوسيط
+    }
 
+    /**
+     * تجهيز قائمة جميع المهمات وعرضها ب ListView
+     */
 
+    public void initAllListView()
+    {
+        //مؤشر لقاعدة البيانات
+        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+
+        //مؤشر لواجهة استعمالات جدول المهمات
+        MytaskQuery taskQuery=db.getMyTaskQuery();
+
+        List<Mytask> alltasks=
 
 
     }
-  
+
     @Override
     protected void onRestart() {
         super.onRestart();

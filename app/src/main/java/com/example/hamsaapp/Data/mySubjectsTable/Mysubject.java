@@ -14,10 +14,10 @@ public class Mysubject {
 
     @Override
     public String toString() {
-        return "Mysubject{" +
-                "key_id=" + key_id +
-                ", title='" + title + '\'' +
-                '}';
+        return  ", title='" + title
+                ;
+
+
     }
 
 
