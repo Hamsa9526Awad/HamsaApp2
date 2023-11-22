@@ -34,6 +34,22 @@ public interface MytaskQuery
 
 
     /**
+     * عملية تعيد جميع المهمات حسب رقم الموضوع
+     * @param subid_p
+     * @return
+     */
+
+    @Query("SELECT * FROM Mytask WHERE subid=:subid_p  "+
+            "ORDER BY importance DESC")
+    List<Mytask> getTasksBySubjid(long subid_p);
+
+
+
+
+
+
+
+    /**
      * ادخال مهمات
      * @param t * مجموعة مهمات
      */

@@ -128,9 +128,34 @@ public class MainActivity extends AppCompatActivity {
         //مؤشر لواجهة استعمالات جدول المهمات
         MytaskQuery taskQuery=db.getMyTaskQuery();
 
-        List<Mytask> alltasks=
+        // مصدر المعطيات: استخراج جميع المهمات من الجدول
+        List<Mytask> alltasks= taskQuery.getAllTasks();
+        ArrayAdapter<Mytask> taskstadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
+        taskstadapter.addAll(alltasks);
+        lstvtasks.setAdapter(taskstadapter);
+    }
 
 
+    /**
+     * تجهيز قائمة المهمات حسب رقم الموضوع
+     * @param key_id رقم الموضوع
+     */
+
+    private void initListViewBySubjid (long key_id)
+    {
+        //مؤشر لقاعدة البيانات
+        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+
+        //مؤشر لواجهة استعمالات جدول المهمات
+        MytaskQuery taskQuery=db.getMyTaskQuery();
+
+        List<Mytask> alltasks=taskQuery.getTasksBySubjid(key_id);
+
+
+        // مصدر المعطيات: استخراج جميع المهمات من الجدول
+        ArrayAdapter<Mytask> taksadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
+        taksadapter.addAll(alltasks);
+        lstvtasks.setAdapter(taksadapter);
     }
 
     @Override
