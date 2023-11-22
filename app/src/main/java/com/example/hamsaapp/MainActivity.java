@@ -93,6 +93,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void initSubjectspnr()
+    {
+        //مؤشر لقاعدة البيانات
+        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+        //مؤشر لواجهة استعمالات جدول المواضيع
+        MysubjectQuery subjectquery=db.getMySubjectQuery();
+        // مصدر المعطيات: استخراج جميع المواضيع من الجدول
+        List<Mysubject> allsubjects=subjectquery.getAllsubjects();
+        //تجهيز وسيط
+        ArrayAdapter<Mysubject> subjectadapter=new ArrayAdapter<Mysubject>(this, android.R.layout.simple_dropdown_item_1line);
+        subjectadapter.add("All");
+
+
+
+
+    }
   
     @Override
     protected void onRestart() {

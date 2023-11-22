@@ -50,6 +50,10 @@ public class AddTaskActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * استخراج أسماء المواضيع من جدول المواضيع وعرضه بالحقل من نوع AutoCopleteTextView
+     * طريقة التعامل معه شبيهة بالسبنر
+     */
 
     private void initAutoETSubjects()
     {
@@ -60,8 +64,10 @@ public class AddTaskActivity extends AppCompatActivity {
         // مصدر المعطيات: استخراج جميع المواضيع من الجدول
         List<Mysubject> allsubjects=subjectquery.getAllsubjects();
         //تجهيز وسيط
+        // الوسيط هو الذي يربط بين ال
         ArrayAdapter<Mysubject> adapter=new ArrayAdapter<Mysubject>(this, android.R.layout.simple_dropdown_item_1line);
         adapter.addAll(allsubjects); // اضافة جميع المعطيات للوسيط
+        autoETsubj.setAdapter(adapter);
         autoETsubj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,9 +160,6 @@ public class AddTaskActivity extends AppCompatActivity {
             task.subid=subject.getKeyid();//تحديد رقم الموضوع للمهة
             db.getMyTaskQuery().insertTask(task);//اضافة المهمة للجدول
             finish();
-
-
-
 
         }
 
