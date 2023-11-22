@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -96,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * عملية تجهيز السبنر بالمواضيع
+     */
+
     private void initSubjectspnr()
     {
         //مؤشر لقاعدة البيانات
@@ -114,6 +119,38 @@ public class MainActivity extends AppCompatActivity {
             subjectadapter.add(subject);
         }
         spnrsubject.setAdapter(subjectadapter);//ربط السبنر بالوسيط
+        spnrsubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                spnrsubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        //استخراج الموضوع حسب رقمه الترتيبي i
+                        Mysubject item=subjectadapter.getItem(i);
+                        if (item.equals("ALL"))//  الكلمة ALL تعني عرض جميع المهمات
+                        {
+                            initAllListView();
+                        }
+                        else
+                        {
+                            Mysubject subject=subjectquery.checkSubject(item.getTitle());
+                            initListViewBySubjid(subject.getKeyid());
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+            }
+        });
+
     }
 
     /**
@@ -149,12 +186,12 @@ public class MainActivity extends AppCompatActivity {
         //مؤشر لواجهة استعمالات جدول المهمات
         MytaskQuery taskQuery=db.getMyTaskQuery();
 
-        List<Mytask> alltasks=taskQuery.getTasksBySubjid(key_id);
+        List<Mytask> tasksbyid=taskQuery.getTasksBySubjid(key_id);
 
 
-        // مصدر المعطيات: استخراج جميع المهمات من الجدول
+        // مصدر المعطيات: استخراج جميع المهمات من الجدول التي تحتوي على نفس ال id
         ArrayAdapter<Mytask> taksadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
-        taksadapter.addAll(alltasks);
+        taksadapter.addAll(tasksbyid);
         lstvtasks.setAdapter(taksadapter);
     }
 
