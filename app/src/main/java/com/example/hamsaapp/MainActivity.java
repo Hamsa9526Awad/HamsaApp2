@@ -133,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    onC
+
+
     /**
      * عملية تجهيز السبنر بالمواضيع
      */
@@ -230,6 +233,9 @@ public class MainActivity extends AppCompatActivity {
         taksadapter.addAll(tasksbyid);
         lstvtasks.setAdapter(taksadapter);
     }
+
+
+
 
     @Override
     protected void onRestart() {
