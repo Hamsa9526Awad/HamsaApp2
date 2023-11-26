@@ -111,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId()==R.id.itemSettings)
         {
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+            //to open new activity from current to next activity
+            Intent i= new Intent(MainActivity.this,   AddTaskActivity.class);
+            startActivity(i);
 
         }
         if (item.getItemId()==R.id.itmSignout)
@@ -271,22 +274,4 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
 
     }
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
