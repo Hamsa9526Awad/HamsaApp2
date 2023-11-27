@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-    public void showMenu(View v)
+    public void showMenu(View v, Mytask t)
     {
         //بناء قائمة
         PopupMenu popup= new PopupMenu(this,v);// الكائن الذي سبب فتح القائمة v
@@ -248,6 +248,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<Mytask> taskstadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
         taskstadapter.addAll(alltasks);
         lstvtasks.setAdapter(taskstadapter);
+        lstvtasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                showMenu(view,taskstadapter.getItem(i));//رقم العنصر الذي سبب الحدث i
+            }
+        });
     }
 
 
@@ -271,6 +277,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<Mytask> taksadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
         taksadapter.addAll(tasksbyid);
         lstvtasks.setAdapter(taksadapter);
+
+
+
     }
 
 
