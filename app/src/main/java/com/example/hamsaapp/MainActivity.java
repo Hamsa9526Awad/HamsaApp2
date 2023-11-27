@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -131,9 +132,47 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+    public void showMenu(View v)
+    {
+        //بناء قائمة
+        PopupMenu popup= new PopupMenu(this,v);// الكائن الذي سبب فتح القائمة v
+        //ملف القائمة
+        popup.inflate(R.menu.options_menu);
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getItemId()==R.id.itmComplete)
+                {
 
 
-    onC
+                }
+                if (menuItem.getItemId()==R.id.itmEdit)
+                {
+                    //to open new activity from current to next activity
+                    Intent i= new Intent(MainActivity.this,   EditTaskActivity.class);
+                    startActivity(i);
+
+
+                }
+                if (menuItem.getItemId()==R.id.itmDelete)
+                {
+
+                }
+                return true;
+
+            }
+        });
+
+        popup.show();//فتح وعرض القائمة
+
+
+    }
+
+
+
+
+
 
 
     /**
