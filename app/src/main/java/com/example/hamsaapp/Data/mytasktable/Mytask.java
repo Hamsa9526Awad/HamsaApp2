@@ -36,14 +36,9 @@ public class Mytask
 
     @Override
     public String toString() {
-        return "mysubject{" +
-                "keyid=" + keyid +
-                ", importance=" + importance +
-                ", text='" + text + '\'' +
-                ", subid=" + subid +
-                ", userid=" + userid +
-                ", time=" + time +
-                ", isCompleted=" + isCompleted +
+        return
+                "text='" + text + '\'' +
+                ", shortTitle='" + shortTitle + '\'' +
                 '}';
     }
 

@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId()==R.id.itmComplete)
                 {
+                    Toast.makeText(MainActivity.this,"Completed",Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -157,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (menuItem.getItemId()==R.id.itmDelete)
                 {
+                    Toast.makeText(MainActivity.this,"Deleted",Toast.LENGTH_SHORT).show();
 
                 }
                 return true;
@@ -197,9 +199,7 @@ public class MainActivity extends AppCompatActivity {
             subjectadapter.add(subject);
         }
         spnrsubject.setAdapter(subjectadapter);//ربط السبنر بالوسيط
-        spnrsubject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
 
                 spnrsubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //استخراج الموضوع حسب رقمه الترتيبي i
                         Mysubject item=subjectadapter.getItem(i);
-                        if (item.equals("ALL"))//  الكلمة ALL تعني عرض جميع المهمات
+                        if (item.title.equals("All"))//  الكلمة ALL تعني عرض جميع المهمات
                         {
                             initAllListView();
                         }
@@ -226,8 +226,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-            }
-        });
+
 
     }
 
@@ -312,6 +311,9 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.d("hamsa","onStart");
         Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+        initAllListView();
+        initSubjectspnr();
+
     }
 
     @Override
