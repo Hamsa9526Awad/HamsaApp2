@@ -47,7 +47,6 @@ public class AddTaskActivity extends AppCompatActivity {
         autoETsubj=findViewById(R.id.autoETsubj);
         initAutoETSubjects();//دالة لاستخراج القيم وعرضها بالحقل السابق
 
-
     }
 
     /**
@@ -72,15 +71,10 @@ public class AddTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 autoETsubj.showDropDown();
-
             }
         });
 
     }
-
-
-
-
 
 
     public void onClicksaveTask (View v)
@@ -97,8 +91,6 @@ public class AddTaskActivity extends AppCompatActivity {
     {
         finish();
 
-
-
     }
 
 
@@ -112,9 +104,7 @@ public class AddTaskActivity extends AppCompatActivity {
         String text=ettext.getText().toString();
         String whichsubj=autoETsubj.getText().toString();
 
-
         int importancee=skbrlimportance.getProgress();
-
 
         if (shortTitle.length()<1)
         {
@@ -140,7 +130,6 @@ public class AddTaskActivity extends AppCompatActivity {
             AppDataBase db=AppDataBase.getDB(getApplicationContext());
             MysubjectQuery subjectQuery=db.getMySubjectQuery();
 
-
             if (subjectQuery.checkSubject(whichsubj)==null) // فحص هل الموضوع من قبل بالجدول
             {
                 //بناء موضوع جديد واضافته
@@ -151,7 +140,6 @@ public class AddTaskActivity extends AppCompatActivity {
             //استخراج id الموضوع لأننا بحاجة لرقمه التسلسلي
 
             Mysubject subject= subjectQuery.checkSubject(whichsubj);
-
 
             Mytask task=new Mytask();
             task.importance=importancee;

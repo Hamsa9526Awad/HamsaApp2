@@ -1,8 +1,10 @@
 package com.example.hamsaapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -94,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
         lstvtasks=findViewById(R.id.lstvtasks);
 
 
@@ -170,12 +170,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
 
     /**
      * عملية تجهيز السبنر بالمواضيع
@@ -278,8 +272,30 @@ public class MainActivity extends AppCompatActivity {
         lstvtasks.setAdapter(taksadapter);
 
 
-
     }
+
+    /**
+     * بناء ديالوج
+     */
+    public void showYesNoDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("SignOut");//تحديد العنوان
+        builder.setMessage("Are you shure?"); //تحديد فحوى شباك الحوار
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //معالجة حدث للموافقة
+                Toast.makeText(MainActivity.this, "Signing Out", Toast.LENGTH_SHORT).show();
+                finish();
+
+
+            }
+        })
+        AlertDialog dialog = builder.create();//بناء شباك الحوار ديالوغ
+        dialog.show();// عرض الشباك
+    }
+
 
 
 
