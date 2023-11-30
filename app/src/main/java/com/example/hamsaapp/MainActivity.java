@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId()==R.id.itmSignout)
         {
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+            showYesNoDialog();
 
         }
         if (item.getItemId()==R.id.itmAddTask)
@@ -291,7 +292,15 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        })
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity.this, "No Signing Out", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         AlertDialog dialog = builder.create();//بناء شباك الحوار ديالوغ
         dialog.show();// عرض الشباك
     }
