@@ -55,33 +55,33 @@ public class MainActivity extends AppCompatActivity {
         //ربط الكائن المرئي بالوسيط spnr6
         spnrsubject.setAdapter(adapter);
 
-        Log.d("hamsa","onCreate");
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-
-        // بناء قاعدة بيانات وارجاع مؤشر عليها1
-        AppDataBase db= AppDataBase.getDB(getApplicationContext());
-        // مؤشر لجدول2
-        MysubjectQuery subjectQuery = db.getMySubjectQuery();
-        // مثال لاستعمال جدول البيانات
-        // بناء كائن من نوع الجدول وتحديد قيم الصفات3
-        Mysubject s1=new Mysubject();
-        s1.setTitle("Math");
-        Mysubject s2=new Mysubject();
-        s2.title="Computers"; // set ولكن بطريقة أخرى لأنها public
-
-        //اضافة كائن للجدول4
-        subjectQuery.insertsubject(s1);
-        subjectQuery.insertsubject(s2);
-
-        //5فحص هل تم حفظ ما سبق
-        // استخراج وطباعة جميع معطيات الجدول المواضيع
-
-        List<Mysubject> allsubjects = subjectQuery.getAllsubjects();
-        for (Mysubject s: allsubjects) {
-            Log.d("Hamsa",s.title);
-            Toast.makeText(this, s.title, Toast.LENGTH_SHORT).show();
-
-        }
+//        Log.d("hamsa","onCreate");
+//        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+//
+//        // بناء قاعدة بيانات وارجاع مؤشر عليها1
+//        AppDataBase db= AppDataBase.getDB(getApplicationContext());
+//        // مؤشر لجدول2
+//        MysubjectQuery subjectQuery = db.getMySubjectQuery();
+//        // مثال لاستعمال جدول البيانات
+//        // بناء كائن من نوع الجدول وتحديد قيم الصفات3
+//        Mysubject s1=new Mysubject();
+//        s1.setTitle("Math");
+//        Mysubject s2=new Mysubject();
+//        s2.title="Computers"; // set ولكن بطريقة أخرى لأنها public
+//
+//        //اضافة كائن للجدول4
+//        subjectQuery.insertsubject(s1);
+//        subjectQuery.insertsubject(s2);
+//
+//        //5فحص هل تم حفظ ما سبق
+//        // استخراج وطباعة جميع معطيات الجدول المواضيع
+//
+//        List<Mysubject> allsubjects = subjectQuery.getAllsubjects();
+//        for (Mysubject s: allsubjects) {
+//            Log.d("Hamsa",s.title);
+//            Toast.makeText(this, s.title, Toast.LENGTH_SHORT).show();
+//
+//        }
 
         fabadd=findViewById(R.id.fabadd);
         fabadd.setOnClickListener(new View.OnClickListener() {
@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("SignOut");//تحديد العنوان
-        builder.setMessage("Are you shure?"); //تحديد فحوى شباك الحوار
+        builder.setMessage("Are you sure?"); //تحديد فحوى شباك الحوار
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

@@ -19,7 +19,7 @@ import com.example.hamsaapp.Data.myuser.Myuserquery;
  عند تغير أي شيء يخص جدول أو جداول علينا تغيير رقم الاصدار
  ليتم بناء قاعدة البيانات من جديد
  */
-@Database(entities = {MyUser.class, Mysubject.class, Mytask.class},version = 2)
+@Database(entities = {MyUser.class, Mysubject.class, Mytask.class},version = 3)
 /**
  * الفئة المسؤولة عن بناء قاعدة البيانات في كل جداولها
  * وتوفر لنا كائن للتعامل مع قاعدة البيانات

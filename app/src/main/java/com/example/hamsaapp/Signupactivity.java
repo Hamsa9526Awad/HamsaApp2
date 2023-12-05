@@ -52,6 +52,7 @@ public class Signupactivity extends AppCompatActivity {
 
     public void onClickcancelsignup(View v)
     {
+        finish();
 
 
 
