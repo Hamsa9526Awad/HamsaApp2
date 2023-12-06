@@ -239,10 +239,18 @@ public class MainActivity extends AppCompatActivity {
 
         // مصدر المعطيات: استخراج جميع المهمات من الجدول
         List<Mytask> alltasks= taskQuery.getAllTasks();
+
+        //بناء الوسيط adapter
         ArrayAdapter<Mytask> taskstadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
+
+        //نضيف كل المعطيات التي بال Data base إلى الوسيط ال adapter
         taskstadapter.addAll(alltasks);
+
+        //بعطي الوسيط listview عشان يقدر يرتبهن
         lstvtasks.setAdapter(taskstadapter);
         lstvtasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            //
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 showMenu(view,taskstadapter.getItem(i));//رقم العنصر الذي سبب الحدث i
@@ -264,12 +272,19 @@ public class MainActivity extends AppCompatActivity {
         //مؤشر لواجهة استعمالات جدول المهمات
         MytaskQuery taskQuery=db.getMyTaskQuery();
 
+
         List<Mytask> tasksbyid=taskQuery.getTasksBySubjid(key_id);
 
 
         // مصدر المعطيات: استخراج جميع المهمات من الجدول التي تحتوي على نفس ال id
+
+        //بناء وسيط taksadapter
         ArrayAdapter<Mytask> taksadapter=new ArrayAdapter<Mytask>(this, android.R.layout.simple_list_item_1);
+
+        //يضيف كل المهمات التي تحتوي على نفس ال id للوسيط لل adapter
         taksadapter.addAll(tasksbyid);
+
+        //بعطيه للوسيط  listView عشان يقدر يرتبهن
         lstvtasks.setAdapter(taksadapter);
 
 

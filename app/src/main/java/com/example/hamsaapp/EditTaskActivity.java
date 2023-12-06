@@ -48,6 +48,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
     public void onClickCancelUpdateTask (View v)
     {
+        finish();
 
 
     }
