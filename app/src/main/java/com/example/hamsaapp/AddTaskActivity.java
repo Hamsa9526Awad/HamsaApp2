@@ -80,9 +80,7 @@ public class AddTaskActivity extends AppCompatActivity {
     public void onClicksaveTask (View v)
     {
         checkShortTitleAndText();
-        //to open new activity from current to next activity
-        Intent i= new Intent(AddTaskActivity.this,   MainActivity.class);
-        startActivity(i);
+
     }
 
 
