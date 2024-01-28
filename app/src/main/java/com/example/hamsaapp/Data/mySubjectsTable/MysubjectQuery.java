@@ -39,6 +39,12 @@ public interface MysubjectQuery {
     @Query("DELETE FROM Mytask WHERE keyid=:id")
     void deletesubject(long id);
 
+    /**
+     * استخراج جميع المهمات التي كوضوعها الموضوع الذي ادخلناه
+     * @param whsubject
+     * @return
+     */
+
     @Query("SELECT * FROM Mysubject WHERE title = :whsubject")
     Mysubject checkSubject(String whsubject);
 

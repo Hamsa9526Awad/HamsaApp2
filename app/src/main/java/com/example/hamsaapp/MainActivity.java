@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    //العملية() onCreate
+    //يتم استدعاء هذه الحالة عند إنشاء النشاط لأول مرة.
+    // في هذه الحالة، يجب على النشاط تهيئة واجهة المستخدم الخاصة به وأي مكونات أخرى يحتاجها.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         fabadd=findViewById(R.id.fabadd);
+
+        //ينتج لنا تطبيق لفئة "مجهولة" anonymous class
+        //(لأن كل معالج حدث من هذا النوع عبارة عن واجهة Interface ويجب تطبيقها،
+        // وهنا نقوم بتطبيقها بشكل فوري بواسطة ما يسمى  anonymous class  )
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,8 +116,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        //فحص من هو العنصر الذي تم اختياره حسب ال id
         if (item.getItemId()==R.id.itemSettings)
         {
+            //مقطع رد الفعل لحدث الضغط على العنصر
             Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
             //to open new activity from current to next activity
             Intent i= new Intent(MainActivity.this,   AddTaskActivity.class);
@@ -131,8 +142,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
 
         }
-        return true;
+        return true;//تم المعالجة بنجاح
     }
+
+    /**
+     * دالة مساعدة لفتح قائمة تتلقى برامتر للكائن الذي سبب فتح القائمة
+     * نحن نرغب بفتح القائمة عند الضغط على عنصر - مهمة- في قائمة العرض listview
+     * @param v برامتر للكائن الذي سبب فتح القائمة
+     * @param t
+     */
     public void showMenu(View v, Mytask t)
     {
         //بناء قائمة
@@ -140,11 +158,13 @@ public class MainActivity extends AppCompatActivity {
         //ملف القائمة
         popup.inflate(R.menu.options_menu);
 
+        //اضافة معالج حدث لاختيار عنصر من القائمة
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId()==R.id.itmComplete)
                 {
+                    //هنا نكتب رد الففعل لاختيار العنصر من القائمة
                     Toast.makeText(MainActivity.this,"Completed",Toast.LENGTH_SHORT).show();
 
 
@@ -160,6 +180,12 @@ public class MainActivity extends AppCompatActivity {
                 if (menuItem.getItemId()==R.id.itmDelete)
                 {
                     Toast.makeText(MainActivity.this,"Deleted",Toast.LENGTH_SHORT).show();
+
+                    AppDataBase db=AppDataBase.getDB(MainActivity.this);
+                    MytaskQuery mytaskQuery=db.getMyTaskQuery();
+                    mytaskQuery.deleteTask(t.keyid);
+                    initAllListView();
+                    initSubjectspnr();
 
                 }
                 return true;
@@ -179,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
     private void initSubjectspnr()
     {
         //مؤشر لقاعدة البيانات
+        // ببنيها بس اول مرة حدا بسجل يعني أول مستخدم
+        //  واذا كانت مبنية من قبل يعني مش أول واحد بستخدمها بس بحط عليها مؤشر
         AppDataBase db=AppDataBase.getDB(getApplicationContext());
         //مؤشر لواجهة استعمالات جدول المواضيع
         MysubjectQuery subjectquery=db.getMySubjectQuery();
@@ -208,7 +236,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
+                            //استخراج كائن الموضوع الذي اخترناه لاستخراج رقمه-استخرج رقم الموضوع keyid
                             Mysubject subject=subjectquery.checkSubject(item.getTitle());
+
+                            //استدعاء العملية التي تجهز القائمة حسب رقم الموضوع
                             initListViewBySubjid(subject.getKeyid());
 
                         }
@@ -232,6 +263,8 @@ public class MainActivity extends AppCompatActivity {
     public void initAllListView()
     {
         //مؤشر لقاعدة البيانات
+        // ببنيها بس اول مرة حدا بسجل يعني أول مستخدم
+        //  واذا كانت مبنية من قبل يعني مش أول واحد بستخدمها بس بحط عليها مؤشر
         AppDataBase db=AppDataBase.getDB(getApplicationContext());
 
         //مؤشر لواجهة استعمالات جدول المهمات
@@ -267,6 +300,8 @@ public class MainActivity extends AppCompatActivity {
     private void initListViewBySubjid (long key_id)
     {
         //مؤشر لقاعدة البيانات
+        // ببنيها بس اول مرة حدا بسجل يعني أول مستخدم
+        //  واذا كانت مبنية من قبل يعني مش أول واحد بستخدمها بس بحط عليها مؤشر
         AppDataBase db=AppDataBase.getDB(getApplicationContext());
 
         //مؤشر لواجهة استعمالات جدول المهمات
@@ -298,6 +333,11 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("SignOut");//تحديد العنوان
         builder.setMessage("Are you sure?"); //تحديد فحوى شباك الحوار
+
+        //بما انه ممنوع نعمل كائن من واجهةInterface فالحاسوب ببنيلنا فئة مجهولة
+        //فبصير عنا فئة بقلب فئة
+        //فعشان هيك منكتب MainActivity.this مش this لحالها
+        //عشان يفرق البرنامج انو احنا قصدنا this تبع الMainActivity مش تبع الفئة المجهولة
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -309,6 +349,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //بما انه ممنوع نعمل كائن من واجهةInterface فالحاسوب ببنيلنا فئة مجهولة
+        //فبصير عنا فئة بقلب فئة
+        //فعشان هيك منكتب MainActivity.this مش this لحالها
+        //عشان يفرق البرنامج انو احنا قصدنا this تبع الMainActivity مش تبع الفئة المجهولة
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

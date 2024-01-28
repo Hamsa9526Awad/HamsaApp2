@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "449089429213",
+    "project_id": "hamsaapp-a6cc2",
+    "storage_bucket": "hamsaapp-a6cc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449089429213:android:eac79669a3217a97f90534",
+        "android_client_info": {
+          "package_name": "com.example.hamsaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9MiNRt7ZpK7YgpiwBpmmG10Mm8yYmQ58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
